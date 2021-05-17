@@ -765,7 +765,7 @@ avList = {
 	"AIRDEFENSE.exe": "AirDefense",
 	"hipstray.exe": "火绒",
 	"fsaa.exe": "F-Secure",
-	"nod32.exe": "已知杀软进程,名称暂未收录",
+	"nod32.exe": "ESET NOD32",
 	"ESCANH95.exe": "已知杀软进程,名称暂未收录",
 	"PCCPFW.exe": "趋势科技",
 	"mgavrtcl.exe": "McAfee",
