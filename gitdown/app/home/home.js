@@ -31,7 +31,7 @@ homeModule.config([
                     $scope.totalFiles = {val: 0};
 
                     var templateUrl = "https?://github.com/.+/.+";
-                    var downloadUrlInfix = "#/home?url=";
+                    var downloadUrlInfix = "?url="; //"#/home?url=";
                     var downloadUrlPrefix = window.location.href+downloadUrlInfix;
 
                     if ($routeParams.url) {
