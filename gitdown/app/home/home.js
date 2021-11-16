@@ -31,8 +31,8 @@ homeModule.config([
                     $scope.totalFiles = {val: 0};
 
                     var templateUrl = "https?://github.com/.+/.+";
-                    var downloadUrlInfix = "?url="; //"#/home?url=";
-                    var downloadUrlPrefix = window.location.href+downloadUrlInfix;
+                    var downloadUrlInfix = "#/home?url=";
+                    var downloadUrlPrefix = "https://shadow1ng.github.io/DownGit/"+downloadUrlInfix;
 
                     if ($routeParams.url) {
                         $scope.url = $routeParams.url;
